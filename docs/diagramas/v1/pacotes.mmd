@@ -1,0 +1,14 @@
+%% Diagrama de Pacotes (Visao Logica) - v1
+flowchart TB
+    subgraph Front["Construção dinâmica das páginas (React)"]
+        view["📁 view (telas)"]
+    end
+    subgraph Back["Gestão de pedidos e contratos (Spring Boot)"]
+        controller["📁 controller"]
+        model["📁 model"]
+    end
+    db[("Banco de dados")]
+
+    view --> controller
+    controller --> model
+    model --> db

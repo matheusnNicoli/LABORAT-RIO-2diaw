@@ -1,0 +1,97 @@
+%% Diagrama de Classes - v2 (revisado, igual ao codigo)
+classDiagram
+    direction TB
+    class Usuario {
+        <<abstract>>
+        -Long id
+        -String login
+        -String senha
+        -Perfil perfil
+        +getNomeExibicao()* String
+    }
+    class Cliente {
+        -String rg
+        -String cpf
+        -String nome
+        -String endereco
+        -String profissao
+        -List~Rendimento~ rendimentos
+    }
+    class Rendimento {
+        -Long id
+        -String entidadeEmpregadora
+        -Double valor
+    }
+    class Agente {
+        -String nome
+        -String cnpj
+        -TipoAgente tipo
+    }
+    class Automovel {
+        -Long id
+        -String matricula
+        -Integer ano
+        -String marca
+        -String modelo
+        -String placa
+        -TipoProprietario tipoProprietario
+        -Usuario proprietario
+    }
+    class PedidoAluguel {
+        -Long id
+        -LocalDate dataInicio
+        -LocalDate dataFim
+        -LocalDateTime dataCriacao
+        -StatusPedido status
+        -String observacao
+        -String parecer
+        +podeSerAlteradoPeloCliente() boolean
+    }
+    class Contrato {
+        -Long id
+        -LocalDate dataContrato
+        -TipoProprietario tipoPropriedade
+        -Double valor
+    }
+    class ContratoCredito {
+        -Long id
+        -Double valor
+        -Integer numeroParcelas
+        -Double taxaJuros
+    }
+    class Perfil {
+        <<enumeration>>
+        CLIENTE
+        AGENTE
+    }
+    class TipoAgente {
+        <<enumeration>>
+        EMPRESA
+        BANCO
+    }
+    class StatusPedido {
+        <<enumeration>>
+        PENDENTE
+        APROVADO
+        REPROVADO
+        CANCELADO
+        CONTRATADO
+    }
+    class TipoProprietario {
+        <<enumeration>>
+        CLIENTE
+        EMPRESA
+        BANCO
+    }
+
+    Usuario <|-- Cliente
+    Usuario <|-- Agente
+    Cliente "1" *-- "0..3" Rendimento : possui
+    PedidoAluguel "*" --> "1" Cliente : cliente
+    PedidoAluguel "*" --> "1" Automovel : automovel
+    PedidoAluguel "*" --> "0..1" Agente : agenteAvaliador
+    Contrato "0..1" --> "1" PedidoAluguel : pedido
+    Contrato "*" --> "1" Agente : agente
+    Contrato "1" *-- "0..1" ContratoCredito : contratoCredito
+    ContratoCredito "*" --> "1" Agente : banco
+    Automovel "*" --> "0..1" Usuario : proprietario

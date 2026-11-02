@@ -1,0 +1,26 @@
+%% Diagrama de Casos de Uso - v1 (versao inicial)
+flowchart LR
+    Cliente(["👤 Cliente"])
+    Agente(["👤 Agente"])
+
+    subgraph Sistema["Sistema de Aluguel de Carros"]
+        UC1(("Cadastrar-se"))
+        UC2(("Fazer login"))
+        UC3(("Introduzir pedido"))
+        UC4(("Modificar pedido"))
+        UC5(("Consultar pedido"))
+        UC6(("Cancelar pedido"))
+        UC7(("Avaliar pedido"))
+        UC8(("Executar contrato"))
+    end
+
+    Cliente --- UC1
+    Cliente --- UC2
+    Cliente --- UC3
+    Cliente --- UC4
+    Cliente --- UC5
+    Cliente --- UC6
+    Agente --- UC2
+    Agente --- UC4
+    Agente --- UC7
+    Agente --- UC8

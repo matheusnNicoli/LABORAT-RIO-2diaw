@@ -1,0 +1,37 @@
+%% Diagrama de Pacotes (Visao Logica) - v2 (revisado, igual ao codigo)
+flowchart TB
+    subgraph Front["Subsistema: construção dinâmica das páginas web (frontend - React + Vite)"]
+        direction TB
+        pages["📁 pages<br/>(View)"]
+        components["📁 components"]
+        fservices["📁 services<br/>(api.js, auth.js)"]
+        pages --> components
+        pages --> fservices
+        components --> fservices
+    end
+
+    subgraph Back["Subsistema: gestão de pedidos e contratos (backend - Spring Boot, MVC)"]
+        direction TB
+        config["📁 config<br/>(AuthInterceptor, WebConfig)"]
+        controller["📁 controller<br/>(Controller)"]
+        dto["📁 dto"]
+        service["📁 service<br/>(regras de negócio)"]
+        repository["📁 repository"]
+        model["📁 model<br/>(Model)"]
+        exception["📁 exception"]
+
+        config --> controller
+        controller --> service
+        controller --> dto
+        service --> repository
+        service --> model
+        service --> dto
+        service --> exception
+        repository --> model
+        dto --> model
+    end
+
+    db[("Supabase<br/>PostgreSQL")]
+
+    fservices == "HTTP / JSON (REST)" ==> controller
+    repository == "JPA / JDBC" ==> db

@@ -1,0 +1,47 @@
+%% Diagrama de Casos de Uso - v2 (revisado)
+flowchart LR
+    Cliente(["👤 Cliente"])
+    Agente(["👤 Agente"])
+    Empresa(["👤 Empresa"])
+    Banco(["👤 Banco"])
+
+    Empresa -. "é um" .-> Agente
+    Banco -. "é um" .-> Agente
+
+    subgraph Sistema["Sistema de Aluguel de Carros"]
+        UC1(("Cadastrar-se"))
+        UC2(("Fazer login / logout"))
+        UC9(("Gerenciar meus dados<br/>(consultar, editar, excluir)"))
+        UC3(("Introduzir pedido"))
+        UC4(("Modificar pedido"))
+        UC5(("Consultar pedidos<br/>e status"))
+        UC6(("Cancelar pedido"))
+        UC7(("Avaliar pedido<br/>(parecer financeiro)"))
+        UC8(("Executar contrato"))
+        UC10(("Conceder crédito"))
+        UC11(("Gerenciar automóveis"))
+        UC12(("Consultar clientes"))
+        UC13(("Consultar contratos"))
+    end
+
+    Cliente --- UC1
+    Cliente --- UC2
+    Cliente --- UC9
+    Cliente --- UC3
+    Cliente --- UC4
+    Cliente --- UC5
+    Cliente --- UC6
+    Cliente --- UC13
+
+    Agente --- UC2
+    Agente --- UC4
+    Agente --- UC5
+    Agente --- UC7
+    Agente --- UC8
+    Agente --- UC11
+    Agente --- UC12
+    Agente --- UC13
+    Banco --- UC10
+
+    UC8 -. "«extend»" .-> UC10
+    UC3 -. "«include»" .-> UC2

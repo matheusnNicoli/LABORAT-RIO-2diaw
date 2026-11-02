@@ -1,0 +1,298 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f2f4f7;
+  color: #222;
+}
+
+a {
+  color: #1e5aa8;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  background: #1e5aa8;
+  color: white;
+  padding: 12px 24px;
+}
+
+.navbar .logo {
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.navbar nav {
+  display: flex;
+  gap: 16px;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.navbar nav a {
+  color: #dce8f8;
+  text-decoration: none;
+}
+
+.navbar nav a.active {
+  color: white;
+  font-weight: bold;
+  border-bottom: 2px solid white;
+}
+
+.navbar .usuario {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.pagina-estreita {
+  max-width: 700px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 14px;
+  flex: 1;
+}
+
+.form input,
+.form select,
+.form textarea,
+.filtro select {
+  padding: 8px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.form .checkbox {
+  flex-direction: row;
+  align-items: center;
+}
+
+.form-inline {
+  background: white;
+  padding: 16px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.form-inline h3 {
+  margin: 0;
+}
+
+.linha {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+fieldset {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: white;
+}
+
+legend {
+  font-weight: bold;
+  padding: 0 6px;
+}
+
+.dica {
+  color: #666;
+  font-size: 13px;
+  margin: 0;
+}
+
+.btn {
+  display: inline-block;
+  background: #1e5aa8;
+  color: white;
+  border: none;
+  padding: 9px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.btn:disabled {
+  background: #999;
+}
+
+.btn-secundario {
+  background: #6c757d;
+}
+
+.btn-perigo {
+  background: #c0392b;
+}
+
+.btn-sucesso {
+  background: #218838;
+}
+
+.btn-sair {
+  background: #0f3d75;
+}
+
+.btn-pequeno {
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+.acoes {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.acoes-tabela {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.titulo-com-botao {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+.tabela th,
+.tabela td {
+  padding: 9px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.tabela th {
+  background: #e7eef8;
+}
+
+.badge {
+  padding: 3px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+}
+
+.badge-pendente { background: #e0a800; }
+.badge-aprovado { background: #17a2b8; }
+.badge-reprovado { background: #c0392b; }
+.badge-cancelado { background: #888; }
+.badge-contratado { background: #218838; }
+
+.alerta {
+  padding: 10px 14px;
+  border-radius: 4px;
+  margin-bottom: 14px;
+}
+
+.alerta.erro {
+  background: #fde2e1;
+  color: #9b1c1c;
+}
+
+.alerta.ok {
+  background: #dff5e3;
+  color: #1d6b2f;
+}
+
+.caixa-login {
+  max-width: 380px;
+  margin: 50px auto;
+  background: white;
+  padding: 28px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.caixa-login h1 {
+  margin-top: 0;
+}
+
+.cards {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.card {
+  background: white;
+  padding: 18px;
+  border-radius: 6px;
+  min-width: 140px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.card strong {
+  font-size: 28px;
+  color: #1e5aa8;
+}
+
+.detalhe {
+  background: white;
+  padding: 12px 16px;
+  border-radius: 6px;
+  margin-bottom: 14px;
+}
+
+.detalhe h3 {
+  margin-top: 0;
+}
+
+.filtro {
+  font-size: 14px;
+}
+
+@media (max-width: 700px) {
+  .tabela {
+    display: block;
+    overflow-x: auto;
+  }
+}

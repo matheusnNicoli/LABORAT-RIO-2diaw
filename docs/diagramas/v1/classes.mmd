@@ -1,0 +1,57 @@
+%% Diagrama de Classes - v1 (versao inicial)
+classDiagram
+    class Usuario {
+        -int id
+        -String login
+        -String senha
+        -String tipo
+        +login()
+    }
+    class Cliente {
+        -String rg
+        -String cpf
+        -String nome
+        -String endereco
+        -String profissao
+        -String[] empregadores
+        -double[] rendimentos
+        +criarPedido()
+        +cancelarPedido()
+    }
+    class Empresa {
+        -String nome
+        -String cnpj
+        +avaliarPedido()
+    }
+    class Banco {
+        -String nome
+        -String cnpj
+        +avaliarPedido()
+        +concederCredito()
+    }
+    class Automovel {
+        -String matricula
+        -int ano
+        -String marca
+        -String modelo
+        -String placa
+    }
+    class Pedido {
+        -int id
+        -Date data
+        -String status
+    }
+    class Contrato {
+        -int id
+        -String tipo
+        -double valor
+    }
+
+    Usuario <|-- Cliente
+    Usuario <|-- Empresa
+    Usuario <|-- Banco
+    Cliente "1" --> "*" Pedido : faz
+    Pedido "*" --> "1" Automovel
+    Pedido "1" --> "0..1" Contrato
+    Contrato "*" --> "0..1" Banco : credito
+    Automovel "*" --> "1" Cliente : proprietario
